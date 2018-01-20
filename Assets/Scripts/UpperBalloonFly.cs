@@ -39,10 +39,8 @@ public class UpperBalloonFly : Challenge
         {
             PlatformerCharacter2D player = collision.gameObject.GetComponent<PlatformerCharacter2D>();
             player.Reset(m_ResetLocation.position + new Vector3(0, 1.5f));
-            if (!SwitchTriggered)
-            {
-                player.Pause();
-            }
+            player.Pause();
+
 
             Vector3 reset_pos = m_UpperChain.A.transform.position + new Vector3(m_UpperChain.offsetA.x, m_UpperChain.offsetA.y);
             m_UpperChain.resetPositions(reset_pos, Vector3.down);

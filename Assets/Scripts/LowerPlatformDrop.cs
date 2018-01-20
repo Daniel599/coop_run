@@ -5,14 +5,14 @@ using UnityEngine;
 public class LowerPlatformDrop : Challenge
 {
 
-    Chain m_UpperChain;
+    //Chain m_UpperChain;
     int m_ChainOfUpperLayerId;
     public Transform m_ResetLocation;
 
     // Use this for initialization
     void Start()
     {
-        m_UpperChain = GetComponentInChildren<Chain>();
+        //m_UpperChain = GetComponentInChildren<Chain>();
     }
 
     // Update is called once per frame

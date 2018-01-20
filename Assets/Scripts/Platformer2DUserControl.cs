@@ -15,6 +15,7 @@ namespace UnityStandardAssets._2D
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
+            m_Character.Pause();
         }
 
 
@@ -33,17 +34,17 @@ namespace UnityStandardAssets._2D
             // Read the inputs.
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal" + m_PostFix);
-            if (m_Character.IsPaused() && m_Jump)
+            if (m_Character.IsPaused() && (m_Jump || h != 0))
             {
                 m_Character.Continue();
                 m_Jump = false;
             }
-            float speed = 1;
-            if (h < 0)
+            float speed = 0.6f;
+            if (h > 0 || !m_Character.IsGrounded())
             {
-                speed = 0.5f;
+                speed = 1f;
             }
-            speed = h;
+            //speed = h;
             // Pass all parameters to the character control script.
             m_Character.Move(speed, crouch, m_Jump);
             m_Jump = false;

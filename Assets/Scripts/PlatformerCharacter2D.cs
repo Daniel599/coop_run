@@ -19,8 +19,6 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
     private Animator m_Anim;            // Reference to the player's animator component.
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-    private float k_RopeRadius = 0.1f;
-    private Transform m_RopeCheck;
     private RopeHook m_RopeHook;
     Collider2D m_link;
     private bool m_Paused = false;
@@ -30,7 +28,6 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
         // Setting up references.
         m_GroundCheck = transform.Find("GroundCheck");
         m_CeilingCheck = transform.Find("CeilingCheck");
-        m_RopeCheck = transform.Find("RopeCheck");
         m_RopeHook = GetComponentInChildren<RopeHook>();
         m_Anim = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -47,7 +44,17 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
 
     public bool OnRope()
     {
+        if (m_RopeHook == null)
+        {
+            return false;
+        }
+
         return m_RopeHook.HasRope;
+    }
+
+    public bool IsGrounded()
+    {
+        return m_Grounded;
     }
 
     public void ConnectToRopeLink(Collider2D link)
@@ -102,7 +109,9 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
     {
         if (m_Paused)
         {
-            return;
+            move = 0;
+            crouch = false;
+            jump = false;
         }
 
         if (jump)
@@ -161,7 +170,7 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
             // Add a vertical force to the player.
             m_Anim.SetBool("Ground", false);
             //m_Rigidbody2D.transform.position += new Vector3(0, k_GroundedRadius);
-            Debug.Log("Jumping");
+            Debug.Log("Jumping, current velocity: " + m_Rigidbody2D.velocity.ToString());
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }
     }
@@ -189,7 +198,6 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
 
     public void Pause()
     {
-        Move(0, false, false);
         m_Paused = true;
     }
 

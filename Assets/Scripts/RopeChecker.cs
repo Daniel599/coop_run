@@ -5,10 +5,10 @@ using UnityEngine;
 public class RopeChecker : MonoBehaviour {
 
     Collider2D m_collider;
-    PlatformerCharacter2D m_char;
+    //PlatformerCharacter2D m_char;
 	// Use this for initialization
 	void Start () {
-        m_char = GetComponentInParent<PlatformerCharacter2D>();
+        //m_char = GetComponentInParent<PlatformerCharacter2D>();
         m_collider = null;
 	}
 	
