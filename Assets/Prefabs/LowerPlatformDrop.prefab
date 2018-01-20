@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 233549717648937806}
   - component: {fileID: 233312141745753064}
   - component: {fileID: 233334866639139816}
-  - component: {fileID: 233635064626296736}
   m_Layer: 11
   m_Name: LinkUpperCanCut(Clone)
   m_TagString: Untagged
@@ -3101,7 +3100,7 @@ MonoBehaviour:
     prefabIdPrev: 0
     rb2D: {fileID: 50118324765681780}
     hingleJoint_1: {fileID: 233988995469345290}
-    hingleJoint_2: {fileID: 233635064626296736}
+    hingleJoint_2: {fileID: 0}
   _prefabsListWidths:
   - 1.81
   rbSettings:
@@ -5694,29 +5693,6 @@ HingeJoint2D:
     m_LowerAngle: 0
     m_UpperAngle: 359
 --- !u!233 &233570832193901840
-HingeJoint2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1050025217493004}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 50128280607769656}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.905, y: 0}
-  m_ConnectedAnchor: {x: 1.253231, y: 0.6268679}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
---- !u!233 &233635064626296736
 HingeJoint2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
