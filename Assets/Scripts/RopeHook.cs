@@ -41,7 +41,7 @@ public class RopeHook : MonoBehaviour {
         else if (((1 << other.gameObject.layer) & m_RopesToCut.value) != 0)
         {
             Debug.Log("cutting");
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(1f, 0), ForceMode2D.Impulse);
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(6f, 0), ForceMode2D.Impulse);
             Chain.CutMe(other.gameObject);
         }
     }

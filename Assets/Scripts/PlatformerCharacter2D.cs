@@ -123,7 +123,8 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
         {
             GetComponent<HingeJoint2D>().enabled = false;
             m_RopeHook.LeaveRope();
-            m_AirControl = true;
+            m_Rigidbody2D.AddForce(new Vector2(100f, 0));
+            //m_AirControl = true;
         }
 
         // If crouching, check to see if the character can stand up
@@ -169,9 +170,15 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
         {
             // Add a vertical force to the player.
             m_Anim.SetBool("Ground", false);
-            //m_Rigidbody2D.transform.position += new Vector3(0, k_GroundedRadius);
+            m_Rigidbody2D.transform.position += new Vector3(0, k_GroundedRadius);
             Debug.Log("Jumping, current velocity: " + m_Rigidbody2D.velocity.ToString());
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            Vector2 jump_force = new Vector2(0f, m_JumpForce);
+            if (m_Rigidbody2D.velocity.x > 0 && m_Rigidbody2D.velocity.x < m_MaxSpeed)
+            {
+                jump_force.x = 100;
+            }
+
+            m_Rigidbody2D.AddForce(jump_force);
         }
     }
 
@@ -193,7 +200,7 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
     {
         GetComponent<HingeJoint2D>().enabled = false;
         m_RopeHook.Reset();
-        m_AirControl = true;
+        //m_AirControl = true;
     }
 
     public void Pause()
@@ -212,7 +219,7 @@ public class PlatformerCharacter2D : MonoBehaviour, Character
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         GetComponent<HingeJoint2D>().enabled = false;
         m_RopeHook.Reset();
-        m_AirControl = true;
+        //m_AirControl = true;
     }
 }
 
