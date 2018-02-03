@@ -39,7 +39,7 @@ namespace UnityStandardAssets._2D
                 m_Character.Continue();
                 m_Jump = false;
             }
-            float speed = 0.6f;
+            float speed = 0.5f;
             if (h > 0 || !m_Character.IsGrounded())
             {
                 speed = 1f;

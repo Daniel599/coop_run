@@ -34,10 +34,7 @@ public class LowerPlatformDrop : Challenge
         {
             PlatformerCharacter2D player = collision.gameObject.GetComponent<PlatformerCharacter2D>();
             player.Reset(m_ResetLocation.position + new Vector3(0, 1.5f));
-            if (!SwitchTriggered)
-            {
-                player.Pause();
-            }
+            player.Pause();
         }
         base.OnTrapTriggered(collision);
     }
