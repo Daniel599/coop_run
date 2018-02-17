@@ -12,8 +12,8 @@ public class Balloon : MonoBehaviour {
     {
         if (collision.gameObject == m_Roof)
         {
-            Debug.Log("got to the roof");
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            //GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            GetComponent<ConstantForce2D>().force = Vector2.up * 300; 
         }
     }
 }

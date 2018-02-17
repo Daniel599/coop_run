@@ -38,10 +38,7 @@ public class UpperRopeJump : Challenge {
         {
             PlatformerCharacter2D player = collision.gameObject.GetComponent<PlatformerCharacter2D>();
             player.Reset(m_ResetLocation.position + new Vector3(0, 1.5f));
-            if (!SwitchTriggered)
-            {
-                player.Pause();
-            }
+            player.Pause();
 
             m_UpperChain.resetPositions(m_UpperChain.A.transform.position, Vector3.down);
         }

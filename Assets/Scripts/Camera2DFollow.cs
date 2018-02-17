@@ -11,17 +11,20 @@ namespace UnityStandardAssets._2D
         public float lookAheadFactor = 3;
         public float lookAheadReturnSpeed = 0.5f;
         public float lookAheadMoveThreshold = 0.1f;
-        public Vector3 offset;
 
         private float m_OffsetZ;
         private Vector3 m_LastTargetPosition;
         private Vector3 m_CurrentVelocity;
         private Vector3 m_LookAheadPos;
         private float m_FixedY;
+        private Vector3 offset;
 
         // Use this for initialization
         private void Start()
         {
+            float screenHeightInUnits = Camera.main.orthographicSize * 2;
+            float screenWidthInUnits = screenHeightInUnits * Screen.width / Screen.height; // basically height * screen aspect ratio
+            offset = new Vector3(screenWidthInUnits / 2 - 3, 0, 0);
             m_FixedY = transform.position.y;
             Transform target = GetMinXTarget();
             m_LastTargetPosition = target.position + offset;
