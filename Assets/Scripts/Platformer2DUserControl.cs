@@ -15,6 +15,14 @@ namespace UnityStandardAssets._2D
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
+            if (m_PostFix == "1")
+            {
+                m_Character.Side = Side.Upper;
+            }
+            else
+            {
+                m_Character.Side = Side.Lower;
+            }
             m_Character.Pause();
         }
 
@@ -44,7 +52,7 @@ namespace UnityStandardAssets._2D
             {
                 speed = 1f;
             }
-            //speed = h;
+            speed = h;
             // Pass all parameters to the character control script.
             m_Character.Move(speed, crouch, m_Jump);
             m_Jump = false;

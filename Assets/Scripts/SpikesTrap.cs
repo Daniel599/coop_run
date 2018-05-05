@@ -11,7 +11,7 @@ public class SpikesTrap : MonoBehaviour {
         m_challenge = GetComponentInParent<Challenge>();
         if (m_challenge == null)
         {
-            Debug.Log("SwitchTrigger must be within Challenge");
+            Debug.Log("SpikesTrap must be within Challenge");
         }
     }
 	
@@ -22,6 +22,17 @@ public class SpikesTrap : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        m_challenge.OnTrapTriggered(collision);
+        if (collision.gameObject.tag == "Player")
+        {
+            m_challenge.OnTrapTriggered(collision);
+        }
+        else if (collision.gameObject.tag == "Coin")
+        {
+            if (collision.gameObject.GetComponent<Coin>().PassedToOtherSide == true)
+            {
+                Destroy(collision.gameObject);
+                return;
+            }
+        }
     }
 }

@@ -32,6 +32,8 @@ public class LowerPlatformDrop : Challenge
     {
         if (collision.gameObject.tag == "Player")
         {
+            //UnityEngine.Time.timeScale = 0.1f;
+            //return;
             PlatformerCharacter2D player = collision.gameObject.GetComponent<PlatformerCharacter2D>();
             player.Reset(m_ResetLocation.position + new Vector3(0, 1.5f));
             player.Pause();

@@ -433,8 +433,8 @@ public class ChainEditor : Editor
 
         // перемещение для А и В
         Handles.color = Color.green;
-        posA = Handles.FreeMoveHandle(posA, Quaternion.identity, 0.5f * t.handleSize, Vector3.zero, Handles.CircleCap);
-        posB = Handles.FreeMoveHandle(posB, Quaternion.identity, 0.5f * t.handleSize, Vector3.zero, Handles.CircleCap);
+        posA = Handles.FreeMoveHandle(posA, Quaternion.identity, 0.5f * t.handleSize, Vector3.zero, Handles.CircleHandleCap);
+        posB = Handles.FreeMoveHandle(posB, Quaternion.identity, 0.5f * t.handleSize, Vector3.zero, Handles.CircleHandleCap);
 
         Vector3 dirAtoB = (posA - posB).normalized;
 
@@ -453,8 +453,8 @@ public class ChainEditor : Editor
 
         // перемещение для offsetA и offsetВ
         Handles.color = Color.green;
-        offsetAGlob = Handles.FreeMoveHandle(offsetAGlob, Quaternion.identity, 0.1f * t.handleSize, Vector3.zero, Handles.CircleCap);
-        offsetBGlob = Handles.FreeMoveHandle(offsetBGlob, Quaternion.identity, 0.1f * t.handleSize, Vector3.zero, Handles.CircleCap);
+        offsetAGlob = Handles.FreeMoveHandle(offsetAGlob, Quaternion.identity, 0.1f * t.handleSize, Vector3.zero, Handles.CircleHandleCap);
+        offsetBGlob = Handles.FreeMoveHandle(offsetBGlob, Quaternion.identity, 0.1f * t.handleSize, Vector3.zero, Handles.CircleHandleCap);
 
         // круг и крестик на смещениях
         Handles.color = new Color(1, 1, 1, 0.2f);
@@ -516,8 +516,8 @@ public class ChainEditor : Editor
                 Handles.DrawSolidDisc(centerDiskB, Vector3.forward, circleSize * 0.5f);
 
                 // кнопки привязки возле А и В
-                bool butA = Handles.Button(centerDiskA, Quaternion.identity, circleSize, circleSize, Handles.CircleCap);
-                bool butB = Handles.Button(centerDiskB, Quaternion.identity, circleSize, circleSize, Handles.CircleCap);
+                bool butA = Handles.Button(centerDiskA, Quaternion.identity, circleSize, circleSize, Handles.CircleHandleCap);
+                bool butB = Handles.Button(centerDiskB, Quaternion.identity, circleSize, circleSize, Handles.CircleHandleCap);
 
                 if (butA)
                 {

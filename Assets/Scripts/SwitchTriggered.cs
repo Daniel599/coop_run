@@ -21,6 +21,9 @@ public class SwitchTriggered : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        m_challenge.OnSwitchTriggered();
+        if (collision.gameObject.tag == "Player")
+        {
+            m_challenge.OnSwitchTriggered();
+        }
     }
 }

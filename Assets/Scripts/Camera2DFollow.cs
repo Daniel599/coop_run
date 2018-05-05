@@ -24,7 +24,7 @@ namespace UnityStandardAssets._2D
         {
             float screenHeightInUnits = Camera.main.orthographicSize * 2;
             float screenWidthInUnits = screenHeightInUnits * Screen.width / Screen.height; // basically height * screen aspect ratio
-            offset = new Vector3(screenWidthInUnits / 2 - 3, 0, 0);
+            offset = new Vector3(screenWidthInUnits / 2 - 5, 0, 0);
             m_FixedY = transform.position.y;
             Transform target = GetMinXTarget();
             m_LastTargetPosition = target.position + offset;
