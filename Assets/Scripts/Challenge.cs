@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Challenge : MonoBehaviour
 {
-    protected bool SwitchTriggered { get; private set; }
+    public bool SwitchTriggered { get; private set; }
  
     // Use this for initialization
     void Start()
